@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roman Karki - Software Engineer</title>
+    <meta name="description" content="Roman Karki is a software engineer specializing in React.js, JavaScript, and TypeScript. Explore his portfolio and skills.">
+    <meta name="keywords" content="Roman Karki, software engineer, React, JavaScript, TypeScript, web developer, portfolio, developer">
+    <meta name="author" content="Roman Karki">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='85' font-size='80' fill='black'>🚀</text></svg>" type="image/svg+xml">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #007bff; /* Bright Blue */
+            --secondary-color: #6c757d; /* Muted Gray */
+            --accent-color: #ffc107; /* Amber */
+            --background-color: #f8f9fa; /* Light Gray */
+            --text-color: #343a40; /* Dark Gray */
+            --heading-color: #212529; /* Very Dark Gray */
+            --card-background: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-secondary: 'Verdana', sans-serif;
+
+            --transition-speed: 0.3s;
+        }
+
+        /* Basic Reset & Global Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.75rem; }
+        p { margin-bottom: 1rem; }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+        a:hover, a:focus {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #e9ecef; /* Slightly darker background for contrast */
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-background);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: var(--font-secondary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: color var(--transition-speed) ease;
+        }
+        nav ul li a:hover, nav ul li a:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6rem 0;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--heading-color);
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .cta-button:hover, .cta-button:focus {
+            background-color: #e0a800;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        #about h2 {
+            margin-bottom: 2rem;
+        }
+
+        #about .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .profile-pic {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            margin: 0 auto; /* Center the image if grid item is smaller */
+            display: block; /* Ensure it behaves as a block element */
+        }
+
+        .about-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        #skills h2 {
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .skill-card {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .skill-card:hover, .skill-card:focus-within { /* Use focus-within for interactive elements inside */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            color: var(--heading-color);
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+        }
+
+        /* Projects Section */
+        #projects h2 {
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-background);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-color);
+            overflow: hidden; /* To keep image within rounded corners */
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .project-card:hover, .project-card:focus-within {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure images cover the area */
+            background-color: var(--secondary-color); /* Placeholder color */
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1; /* Allows content to take available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push content apart */
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--heading-color);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Allow description to grow */
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto; /* Push links to the bottom */
+        }
+
+        .project-links a {
+            font-weight: 500;
+            padding: 0.5rem 0; /* Added padding for better click area */
+        }
+        .project-links a:hover, .project-links a:focus {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        #contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links li a {
+            color: white;
+            font-size: 2rem;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .social-links li a:hover, .social-links li a:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--heading-color);
+            color: var(--background-color);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--accent-color);
+        }
+        footer a:hover, footer a:focus {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
+
+            #hero h1 { font-size: 2.8rem; }
+            #hero p { font-size: 1.2rem; }
+
+            .container {
+                width: 95%;
+            }
+
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+                text-align: left;
+            }
+            nav ul li a {
+                display: block; /* Make links take full width */
+                padding: 0.5rem 0;
+            }
+
+            #hero {
+                padding: 4rem 0;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            #about .container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-pic {
+                max-width: 200px;
+                margin-bottom: 2rem;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                margin-bottom: 2rem;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.6rem; }
+
+            #hero h1 { font-size: 3.2rem; }
+            #hero p { font-size: 1.3rem; }
+
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            #about .container {
+                grid-template-columns: 1fr 2fr; /* Image on left, text on right */
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1025px) {
+            /* Default styles are mostly for desktop, but can refine here */
+            nav ul li {
+                margin-left: 2.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Roman Karki</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Roman Karki</h1>
+                <p>Software Engineer | React.js, JavaScript, TypeScript</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <img src="https://via.placeholder.com/400x500" alt="Roman Karki Professional Photo" class="profile-pic" loading="lazy">
+                    <div class="about-content">
+                        <h2>About Me</h2>
+                        <p>Hello! I'm Roman Karki, a dedicated and passionate Software Engineer with a strong focus on building modern, user-friendly web applications. I thrive on translating complex ideas into elegant code, with a particular expertise in JavaScript, TypeScript, and the React.js ecosystem.</p>
+                        <p>I believe in clean code, efficient solutions, and continuous learning. My goal is to create impactful digital experiences that solve real-world problems and contribute positively to user satisfaction. Let's build something amazing together!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2>Core Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">🚀</div>
+                        <h3>React.js</h3>
+                        <p>Building dynamic and efficient user interfaces with modern React patterns.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3>JavaScript</h3>
+                        <p>Leveraging the power of vanilla JS for robust front-end development.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🔢</div>
+                        <h3>TypeScript</h3>
+                        <p>Enhancing code quality and maintainability with static typing.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Frontend Development</h3>
+                        <p>HTML5, CSS3, modern styling techniques, and responsive design.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📦</div>
+                        <h3>Build Tools</h3>
+                        <p>Familiar with Webpack, Vite, and other essential development tools.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📚</div>
+                        <h3>Problem Solving</h3>
+                        <p>Analytical approach to debugging and finding optimal solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/007bff/ffffff?text=Project+One" alt="Project One Screenshot" class="project-image" loading="lazy">
+                        <div class="project-content">
+                            <h3 class="project-title">E-commerce Platform Frontend</h3>
+                            <p class="project-description">Developed a responsive and interactive e-commerce frontend using React.js and styled-components, focusing on user experience and performance.</p>
+                            <div class="project-links">
+                                <a href="#" aria-label="Live demo of Project One">Live Demo</a>
+                                <a href="#" aria-label="Source code for Project One">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/6c757d/ffffff?text=Project+Two" alt="Project Two Screenshot" class="project-image" loading="lazy">
+                        <div class="project-content">
+                            <h3 class="project-title">Task Management App</h3>
+                            <p class="project-description">Built a full-stack task management application with a React frontend and Node.js backend, featuring CRUD operations and user authentication.</p>
+                            <div class="project-links">
+                                <a href="#" aria-label="Live demo of Project Two">Live Demo</a>
+                                <a href="#" aria-label="Source code for Project Two">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250/ffc107/000000?text=Project+Three" alt="Project Three Screenshot" class="project-image" loading="lazy">
+                        <div class="project-content">
+                            <h3 class="project-title">Data Visualization Dashboard</h3>
+                            <p class="project-description">Created an interactive dashboard for data visualization using React, Chart.js, and TypeScript, providing insightful analytics.</p>
+                            <div class="project-links">
+                                <a href="#" aria-label="Live demo of Project Three">Live Demo</a>
+                                <a href="#" aria-label="Source code for Project Three">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind or just want to connect? Reach out!</p>
+                <a href="mailto:roman.karki.dev@email.com" class="cta-button" aria-label="Email Roman Karki">Email Me</a>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Roman Karki's LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#" aria-label="Roman Karki's GitHub Profile"><i class="fab fa-github"></i></a></li>
+                    <li><a href="#" aria-label="Roman Karki's Twitter Profile"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Roman Karki. All rights reserved.</p>
+            <p>Built with <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React.js</a>, <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">TypeScript</a>, and a lot of passion.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for Icons (optional but good for social links) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        // JavaScript for dynamic elements and smooth scrolling
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update current year in footer
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add subtle animations on scroll (optional for now, can be expanded)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Unobserve after it becomes visible
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            document.querySelectorAll('section > .container > div > div, .skill-card, .project-card').forEach(element => {
+                element.classList.add('hidden'); // Add initial hidden class
+                observer.observe(element);
+            });
+
+            // Add a CSS class to trigger animation after elements are observed
+            // This part is often handled by CSS itself or more complex JS animations.
+            // For simplicity here, we'll rely on the 'visible' class added by the observer.
+            // You might need to add CSS for `.hidden { opacity: 0; transform: translateY(20px); }`
+            // and `.visible { opacity: 1; transform: translateY(0); }` for this to work.
+
+            // Let's refine the CSS for the intersection observer for better animation.
+            // We'll add the '.visible' class in JS and define corresponding CSS.
+            // For demo purposes, we'll assume `.skill-card` and `.project-card` already have transitions.
+            // The `transform: translateY(-5px)` on hover already provides animation.
+
+        });
+    </script>
+
+    <style>
+        /* Enhanced animation for elements coming into view */
+        .skill-card, .project-card, .about-content, .profile-pic {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .skill-card.visible, .project-card.visible, .about-content.visible, .profile-pic.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Make sure the header nav links are clickable even when they have the 'visible' class applied by JS on scroll */
+        .skill-card:focus-within, .project-card:focus-within {
+            outline: none; /* Remove default outline if focus-within is used for hover-like effects */
+        }
+    </style>
+
+</body>
+</html>
